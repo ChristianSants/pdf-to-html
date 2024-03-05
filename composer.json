@@ -14,7 +14,7 @@
             "email": "christian.dsantos@outlook.com"
         }
     ],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "require": {
         "symfony/process": "^7.0",
         "php": "^8.0"
