@@ -7,7 +7,7 @@
 Você pode instalar a biblioteca via Composer. Execute o seguinte comando no terminal:
 
 ```bash
-composer require chris/pdf-to-html
+composer require christiansants/pdf-to-html
 ```
 
 ## Uso
@@ -16,7 +16,7 @@ A biblioteca oferece uma classe principal PdfToHtml com métodos simples para co
 ```php
 <?php
 
-use Chris\PdfToHtml\PdfToHtml;
+use ChristianSants\PdfToHtml\PdfToHtml;
 
 // Defina o caminho para o arquivo PDF que deseja converter
 $pdfPath = '/caminho/para/seu/arquivo.pdf';
@@ -34,7 +34,7 @@ echo $htmlContent;
 ```php
 <?php
 
-use Chris\PdfToHtml\PdfToHtml;
+use ChristianSants\PdfToHtml\PdfToHtml;
 
 // Defina o caminho para o arquivo PDF que deseja converter
 $pdfPath = '/caminho/para/seu/arquivo.pdf';
