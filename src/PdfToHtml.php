@@ -10,6 +10,8 @@ class PdfToHtml {
     protected string $binPath;
 
     protected int $timeout = 60;
+
+    protected array $options = [];
     
     protected string $defaultPath;
 
@@ -30,15 +32,23 @@ class PdfToHtml {
         return $this;
     }
 
-    public function setTimeout($timeout) {
+    public function setTimeout(int $timeout): self
+    {
         $this->timeout = $timeout;
+        
+        return $this;
+    }
+
+    public function setOptions(array $options): self
+    {
+        $this->options = $options;
         
         return $this;
     }
 
     public function html(): string
     {
-        $process = new Process([$this->binPath,  $this->pdfPath, $this->defaultPath]);
+        $process = new Process( array_merge([$this->binPath], $this->options, [$this->pdfPath, $this->defaultPath]));
         $process->setTimeout($this->timeout);
         $process->start();
         $process->wait();
@@ -59,11 +69,12 @@ class PdfToHtml {
         return $content;
     }
 
-    public static function getHtml(string $pdf, ?string $binPath = null, $timeout = 60): string
+    public static function getHtml(string $pdf, ?string $binPath = null, array $options = [], int $timeout = 60): string
     {
         return (new static($binPath))
             ->setTimeout($timeout)
             ->setPdf($pdf)
+            ->setOptions($options)
             ->html();
     }
 

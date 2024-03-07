@@ -3,6 +3,8 @@
     "description": "Conversão de pdf para HTML usando o poppler.",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.0",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "ChristianSants\\PdfToHtml\\": "src/"
@@ -14,7 +16,6 @@
             "email": "christian.dsantos@outlook.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "symfony/process": "^7.0",
         "php": "^8.0"

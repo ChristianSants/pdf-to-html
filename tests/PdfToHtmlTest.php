@@ -28,4 +28,16 @@ class PdfToHtmlTest extends TestCase
         $this->assertStringContainsString('</html>', $htmlContent);
         $this->assertStringContainsString('</body>', $htmlContent);
     }
+
+    public function testPdfToHtmlConversionWithOptions()
+    {
+        $pdfPath = __DIR__.'/source/Profile.pdf';
+        $htmlContent = $this->pdfToHtml->setPdf($pdfPath)->setOptions(['-table'])->html();
+        
+        $this->assertNotEmpty($htmlContent);
+        $this->assertStringContainsString('<html>', $htmlContent);
+        $this->assertStringContainsString('<body>', $htmlContent);
+        $this->assertStringContainsString('</html>', $htmlContent);
+        $this->assertStringContainsString('</body>', $htmlContent);
+    }
 }
